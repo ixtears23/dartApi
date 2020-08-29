@@ -6,7 +6,6 @@ import lombok.Setter;
 import person.junseok.dart.api.common.dto.ResponseBodyDTO;
 
 @Getter
-@Setter
 @EqualsAndHashCode
 public class BusinessReportDTO {
 

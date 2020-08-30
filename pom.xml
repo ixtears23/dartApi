@@ -16,6 +16,7 @@
 
     <properties>
         <java.version>14</java.version>
+        <restdocs-version>2.0.4.RELEASE</restdocs-version>
     </properties>
 
     <dependencies>
@@ -47,12 +48,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.restdocs</groupId>
+            <artifactId>spring-restdocs-mockmvc</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -61,6 +61,31 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>1.5.8</version>
+                <executions>
+                    <execution>
+                        <id>generate-docs</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html</backend>
+                            <doctype>book</doctype>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework.restdocs</groupId>
+                        <artifactId>spring-restdocs-asciidoctor</artifactId>
+                        <version>2.0.4.RELEASE</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

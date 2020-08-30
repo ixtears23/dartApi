@@ -21,7 +21,7 @@ public class JeungjaGamjaHyeonhwangController {
     }
 
     @PostMapping("/jeungjaGamjaHyeonhwang")
-    public ResponseBodyDTO<BusinessReportDTO> JeungjaGamjaHyeonhwang(@RequestBody BusinessReportDTO businessReportDTO) {
+    public ResponseBodyDTO<BusinessReportDTO> jeungjaGamjaHyeonhwang(@RequestBody BusinessReportDTO businessReportDTO) {
 
         String requestUrl = String.format("%s?crtfc_key=%s&corp_code=%s&bsns_year=%s&reprt_code=%s",
                 REST_URL,

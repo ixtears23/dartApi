@@ -1,5 +1,5 @@
 ### json 요청
-POST http://localhost:12345/jeungjaGamjaHyeonhwang
+POST http://localhost:12345/baedangeGwanhanSahang
 Content-Type: application/json
 
 { "saeobBogoseoRequestDTO" : {

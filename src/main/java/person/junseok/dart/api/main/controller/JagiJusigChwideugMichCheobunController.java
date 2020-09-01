@@ -4,25 +4,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import person.junseok.dart.api.common.dto.ResponseBodyDTO;
 import person.junseok.dart.api.API;
+import person.junseok.dart.api.common.dto.ResponseBodyDTO;
 import person.junseok.dart.api.main.dto.SaeobBogoseoRequestDTO;
-import person.junseok.dart.api.main.dto.JeungjaGamjaHyeonhwangDTO;
-
+import person.junseok.dart.api.main.dto.JagiJusigChwideugMichCheobunDTO;
 
 @RestController
-public class JeungjaGamjaHyeonhwangController {
+public class JagiJusigChwideugMichCheobunController {
 
     private final RestTemplate restTemplate;
 
-    private static final String REST_URL = "https://opendart.fss.or.kr/api/irdsSttus.json";
+    private static final String REST_URL = "https://opendart.fss.or.kr/api/tesstkAcqsDspsSttus.json";
 
-    public JeungjaGamjaHyeonhwangController(RestTemplate restTemplate) {
+    public JagiJusigChwideugMichCheobunController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
-    @PostMapping("/jeungjaGamjaHyeonhwang")
-    public ResponseBodyDTO<JeungjaGamjaHyeonhwangDTO> jeungjaGamjaHyeonhwang(@RequestBody SaeobBogoseoRequestDTO saeobBogoseoRequestDTO) {
+    @PostMapping("/jagiJusigChwideugMichCheobun")
+    public ResponseBodyDTO<JagiJusigChwideugMichCheobunDTO> jagiJusigChwideugMichCheobun(@RequestBody SaeobBogoseoRequestDTO saeobBogoseoRequestDTO) {
 
         String requestUrl = String.format("%s?crtfc_key=%s&corp_code=%s&bsns_year=%s&reprt_code=%s",
                 REST_URL,

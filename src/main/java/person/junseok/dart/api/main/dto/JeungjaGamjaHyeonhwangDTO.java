@@ -13,7 +13,7 @@ public class JeungjaGamjaHyeonhwangDTO extends ResponseBodyDTO {
     private String corp_cls;
     private String corp_code;
     private String corp_name;
-    private String stock_isu_dcrs_de;
+    private String isu_dcrs_de;
     private String isu_dcrs_stle;
     private String isu_dcrs_stock_knd;
     private String isu_dcrs_qy;

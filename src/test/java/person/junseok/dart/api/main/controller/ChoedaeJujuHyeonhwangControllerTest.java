@@ -10,39 +10,30 @@ import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDoc
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.JUnitRestDocumentation;
-import org.springframework.restdocs.constraints.ConstraintDescriptions;
-import org.springframework.restdocs.payload.FieldDescriptor;
+import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
 import org.springframework.restdocs.payload.JsonFieldType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.util.StringUtils;
 import org.springframework.web.context.WebApplicationContext;
 import person.junseok.dart.api.main.dto.SaeobBogoseoRequestDTO;
 
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
+import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
+import static org.springframework.restdocs.payload.PayloadDocumentation.*;
+import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
 import static org.springframework.restdocs.snippet.Attributes.attributes;
+import static org.springframework.restdocs.snippet.Attributes.key;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessResponse;
-import static org.springframework.restdocs.operation.preprocess.Preprocessors.prettyPrint;
-import static org.springframework.restdocs.payload.PayloadDocumentation.requestFields;
-import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
-
-import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
-
-import static org.springframework.restdocs.snippet.Attributes.key;
-import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
-
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
-
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-@AutoConfigureRestDocs(uriScheme = "http", uriHost = "localhost", uriPort = 12345)
-public class JeungjaGamjaHyeonhwangControllerTest {
+@AutoConfigureRestDocs
+public class ChoedaeJujuHyeonhwangControllerTest {
 
     @Rule
     public final JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation();
@@ -56,7 +47,7 @@ public class JeungjaGamjaHyeonhwangControllerTest {
     private MockMvc mockMvc;
     private RestDocumentationResultHandler restDocumentationResultHandler;
 
-    public JeungjaGamjaHyeonhwangControllerTest() {
+    public ChoedaeJujuHyeonhwangControllerTest() {
     }
 
     @Before
@@ -72,14 +63,14 @@ public class JeungjaGamjaHyeonhwangControllerTest {
     }
 
     @Test
-    public void jeungjaGamjaHyeonhwangTest() throws Exception {
+    public void choedaeJujuHyeonhwangTest() throws Exception {
         SaeobBogoseoRequestDTO saeobBogoseoRequestDTO = SaeobBogoseoRequestDTO.builder()
                 .bsnsYear("2018")
                 .corpCode("00126380")
                 .reprtCode("11011")
                 .build();
 
-        ResultActions resultAction = mockMvc.perform(post("/jeungjaGamjaHyeonhwang")
+        ResultActions resultAction = mockMvc.perform(post("/choedaeJujuHyeonhwang")
                 .content(objectMapper.writeValueAsString(saeobBogoseoRequestDTO))
                 .contentType(MediaType.APPLICATION_JSON_VALUE));
 
@@ -88,55 +79,42 @@ public class JeungjaGamjaHyeonhwangControllerTest {
         resultAction.andExpect(status().isOk())
                 .andDo(restDocumentationResultHandler.document(
                         requestFields(
-                                attributes(key("title").value("증자(감자) 현황")),
+                                attributes(key("title").value("최대주주 현황")),
                                 fieldWithPath("corpCode")
                                         .type(JsonFieldType.STRING)
                                         .description("공시대상회사의 고유번호")
                                         .attributes(key("constraints")
-                                        .value("8자리")),
+                                                .value("8자리")),
                                 fieldWithPath("bsnsYear")
                                         .type(JsonFieldType.STRING)
                                         .description("사업연도")
                                         .attributes(key("constraints")
-                                        .value("4자리")),
+                                                .value("4자리")),
                                 fieldWithPath("reprtCode")
                                         .type(JsonFieldType.STRING)
                                         .description("보고서 코드\n1분기보고서:11013\n반기보고서:11012\n3분기보고서:11014\n사업보고서:11011")
                                         .attributes(key("constraints")
-                                        .value("5자리"))),
+                                                .value("5자리"))),
                         responseFields(
-                                attributes(key("title").value("증자(감자) 현황")),
+                                attributes(key("title").value("최대주주 현황")),
                                 fieldWithPath("status").type(JsonFieldType.STRING).description("에러 및 정보 코드"),
                                 fieldWithPath("message").type(JsonFieldType.STRING).description("에러 및 정보 메시지"),
                                 fieldWithPath("bsns_year").type(JsonFieldType.STRING).optional().description("사업연도"),
                                 fieldWithPath("reprt_code").type(JsonFieldType.STRING).optional().description("보고서코드"),
                                 fieldWithPath("list.[].rcept_no").type(JsonFieldType.STRING).description("접수번호").attributes(key("constraints").value("14자리")),
-                                fieldWithPath("list.[].corp_cls").type(JsonFieldType.STRING).description("법인구분"),
-                                fieldWithPath("list.[].corp_code").type(JsonFieldType.STRING).description("고유번호").attributes(key("constraints").value("8자리")),
+                                fieldWithPath("list.[].corp_cls").type(JsonFieldType.STRING).description("법인구분 : Y(유가), K(코스닥), N(코넥스), E(기타)"),
+                                fieldWithPath("list.[].corp_code").type(JsonFieldType.STRING).description("고유번호").attributes(key("constraints").value("공시대상회사의 고유번호(8자리)")),
                                 fieldWithPath("list.[].corp_name").type(JsonFieldType.STRING).description("법인명"),
-                                fieldWithPath("list.[].isu_dcrs_de").type(JsonFieldType.STRING).optional().description("주식발행 감소일자"),
-                                fieldWithPath("list.[].isu_dcrs_stle").type(JsonFieldType.STRING).optional().description("발행 감소 형태"),
-                                fieldWithPath("list.[].isu_dcrs_stock_knd").type(JsonFieldType.STRING).description("발행 감소 주식 종류"),
-                                fieldWithPath("list.[].isu_dcrs_qy").type(JsonFieldType.STRING).description("발행 감소 수량"),
-                                fieldWithPath("list.[].isu_dcrs_mstvdv_fval_amount").type(JsonFieldType.STRING).description("발행 감소 주당 액면 가액"),
-                                fieldWithPath("list.[].isu_dcrs_mstvdv_amount").type(JsonFieldType.STRING).description("발행 감소 주당 가액")
+                                fieldWithPath("list.[].nm").type(JsonFieldType.STRING).description("성명"),
+                                fieldWithPath("list.[].relate").type(JsonFieldType.STRING).optional().description("관계\n본인, 친인척 등"),
+                                fieldWithPath("list.[].stock_knd").type(JsonFieldType.STRING).description("주식 종류\n보통주 등"),
+                                fieldWithPath("list.[].bsis_posesn_stock_co").type(JsonFieldType.STRING).description("기초 소유 주식 수").attributes(key("constraints").value("9,999,999,999")),
+                                fieldWithPath("list.[].bsis_posesn_stock_qota_rt").type(JsonFieldType.STRING).description("기초 소유 주식 지분 율").attributes(key("constraints").value("0.00")),
+                                fieldWithPath("list.[].trmend_posesn_stock_co").type(JsonFieldType.STRING).description("기말 소유 주식 수").attributes(key("constraints").value("9,999,999,999")),
+                                fieldWithPath("list.[].trmend_posesn_stock_qota_rt").type(JsonFieldType.STRING).description("기말 소유 주식 지분 율").attributes(key("constraints").value("0.00")),
+                                fieldWithPath("list.[].rm").type(JsonFieldType.STRING).description("비고")
                         )
                 ));
-    }
-
-    private static class ConstrainedFields {
-
-        private final ConstraintDescriptions constraintDescriptions;
-
-        ConstrainedFields(Class<?> input) {
-            this.constraintDescriptions = new ConstraintDescriptions(input);
-        }
-
-        private FieldDescriptor withPath(String path) {
-            return fieldWithPath(path).attributes(key("constraints").value(StringUtils
-                    .collectionToDelimitedString(this.constraintDescriptions
-                            .descriptionsForProperty(path), ". ")));
-        }
     }
 
 }

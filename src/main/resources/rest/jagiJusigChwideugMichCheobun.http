@@ -1,10 +1,10 @@
 ### json 요청
-POST http://localhost:12345/jeungjaGamjaHyeonhwang
+POST http://localhost:12345/jagiJusigChwideugMichCheobun
 Content-Type: application/json
 
 { "saeobBogoseoRequestDTO" : {
   "corpCode":"00126380",
   "bsnsYear":"2018",
   "reprtCode":"11011"
-  }
+}
 }

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import person.junseok.dart.api.API;
-import person.junseok.dart.api.common.dto.MainResponseBodyDTO;
+import person.junseok.dart.common.dto.MainResponseBodyDTO;
 import person.junseok.dart.api.main.dto.IsaGamsaJeoncheBosuHyeonhwangDTO;
 import person.junseok.dart.api.main.dto.SaeobBogoseoRequestDTO;
 

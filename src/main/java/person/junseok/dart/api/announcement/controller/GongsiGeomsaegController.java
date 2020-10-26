@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import person.junseok.dart.api.announcement.dto.GongsiJeongboRequestDTO;
 import person.junseok.dart.api.announcement.dto.GongsigeomSaegDTO;
-import person.junseok.dart.api.common.GenerateURL;
-import person.junseok.dart.api.common.dto.AnnouncementResponseBodyDTO;
+import person.junseok.dart.common.GenerateURL;
+import person.junseok.dart.common.dto.AnnouncementResponseBodyDTO;
 
 @RestController
 public class GongsiGeomsaegController {

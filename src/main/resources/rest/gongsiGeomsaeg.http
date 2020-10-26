@@ -3,15 +3,15 @@ POST http://localhost:12345/gongsiGeomsaeg
 Content-Type: application/json
 
 {
-  "corpCode":"",
-  "bgnDe":"20200117",
-  "endDe":"20200117",
-  "lastReprtAt":"",
-  "pblntfTy":"",
-  "pblntfDetailTy":"",
-  "corpCls":"Y",
+  "corp_code":"",
+  "bgn_de":"20200117",
+  "end_de":"20200117",
+  "last_reprt_at":"",
+  "pblntf_ty":"",
+  "pblntf_detail_ty":"",
+  "corp_cls":"Y",
   "sort":"",
-  "sortMth":"",
-  "pageNo":"1",
-  "pageCount":"10"
+  "sort_mth":"",
+  "page_no":"1",
+  "page_count":"10"
 }

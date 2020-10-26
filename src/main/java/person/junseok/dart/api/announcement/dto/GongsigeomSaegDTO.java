@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import person.junseok.dart.api.common.dto.AnnouncementResponseBodyDTO;
+import person.junseok.dart.common.dto.AnnouncementResponseBodyDTO;
 
 @Getter
 @Builder

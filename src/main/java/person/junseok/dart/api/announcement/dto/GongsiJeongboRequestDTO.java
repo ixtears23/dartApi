@@ -8,15 +8,15 @@ import lombok.Getter;
 @EqualsAndHashCode
 @Builder
 public class GongsiJeongboRequestDTO {
-    private String corpCode;
-    private String bgnDe;
-    private String endDe;
-    private String lastReprtAt;
-    private String pblntfTy;
-    private String pblntfDetailTy;
-    private String corpCls;
+    private String corp_code;
+    private String bgn_de;
+    private String end_de;
+    private String last_reprt_at;
+    private String pblntf_ty;
+    private String pblntf_detail_ty;
+    private String corp_cls;
     private String sort;
-    private String sortMth;
-    private String pageNo;
-    private String pageCount;
+    private String sort_mth;
+    private String page_no;
+    private String page_count;
 }

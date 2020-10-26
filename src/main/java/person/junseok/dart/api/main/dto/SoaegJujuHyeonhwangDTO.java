@@ -1,7 +1,7 @@
 package person.junseok.dart.api.main.dto;
 
 import lombok.*;
-import person.junseok.dart.api.common.dto.MainResponseBodyDTO;
+import person.junseok.dart.common.dto.MainResponseBodyDTO;
 
 @Getter
 @Builder

@@ -1,4 +1,4 @@
-package person.junseok.dart.api.common.dto;
+package person.junseok.dart.common.dto;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

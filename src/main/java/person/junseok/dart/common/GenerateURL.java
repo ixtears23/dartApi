@@ -1,4 +1,4 @@
-package person.junseok.dart.api.common;
+package person.junseok.dart.common;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -22,12 +22,12 @@ public class GenerateURL<T> {
             Field f = declaredFields[i];
             f.setAccessible(true);
 
-            if(f.get(dto) != null && "".equals(f.get(dto))) {
+            if(f.get(dto) != null && !"".equals(f.get(dto))) {
                 sb.append(f.getName()).append("=").append(f.get(dto));
-            }
 
-            if(declaredFields.length < (i - 1)) {
-                sb.append("&");
+                if(i < (declaredFields.length - 1)) {
+                    sb.append("&");
+                }
             }
         }
         return sb.toString();

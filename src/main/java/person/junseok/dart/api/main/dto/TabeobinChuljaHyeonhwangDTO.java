@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import person.junseok.dart.api.common.dto.ResponseBodyDTO;
+import person.junseok.dart.api.common.dto.MainResponseBodyDTO;
 
 @Getter
 @Builder
 @AllArgsConstructor
 @EqualsAndHashCode
-public class TabeobinChuljaHyeonhwangDTO extends ResponseBodyDTO {
+public class TabeobinChuljaHyeonhwangDTO extends MainResponseBodyDTO {
     private String rcept_no;
     private String corp_cls;
     private String corp_code;

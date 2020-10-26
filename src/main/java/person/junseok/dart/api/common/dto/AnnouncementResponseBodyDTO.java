@@ -9,10 +9,12 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-public class ResponseBodyDTO<T> {
+public class AnnouncementResponseBodyDTO<T> {
     private String status;
     private String message;
-    private String bsns_year;
-    private String reprt_code;
+    private String page_no;
+    private String page_count;
+    private String total_count;
+    private String total_page;
     private List<T> list;
 }

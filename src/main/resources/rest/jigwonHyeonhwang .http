@@ -2,9 +2,8 @@
 POST http://localhost:12345/jigwonHyeonhwang
 Content-Type: application/json
 
-{ "saeobBogoseoRequestDTO" : {
+{
   "corpCode":"00126380",
   "bsnsYear":"2018",
   "reprtCode":"11011"
-}
 }

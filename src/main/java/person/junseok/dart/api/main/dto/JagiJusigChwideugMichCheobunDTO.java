@@ -2,11 +2,11 @@ package person.junseok.dart.api.main.dto;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import person.junseok.dart.api.common.dto.ResponseBodyDTO;
+import person.junseok.dart.api.common.dto.MainResponseBodyDTO;
 
 @Getter
 @EqualsAndHashCode
-public class JagiJusigChwideugMichCheobunDTO extends ResponseBodyDTO {
+public class JagiJusigChwideugMichCheobunDTO extends MainResponseBodyDTO {
     private String rcept_no;
     private String corp_cls;
     private String corp_code;

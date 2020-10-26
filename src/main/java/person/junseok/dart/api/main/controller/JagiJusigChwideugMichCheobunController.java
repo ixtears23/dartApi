@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import person.junseok.dart.api.API;
-import person.junseok.dart.api.common.dto.ResponseBodyDTO;
+import person.junseok.dart.api.common.dto.MainResponseBodyDTO;
 import person.junseok.dart.api.main.dto.SaeobBogoseoRequestDTO;
 import person.junseok.dart.api.main.dto.JagiJusigChwideugMichCheobunDTO;
 
@@ -21,7 +21,7 @@ public class JagiJusigChwideugMichCheobunController {
     }
 
     @PostMapping("/jagiJusigChwideugMichCheobun")
-    public ResponseBodyDTO<JagiJusigChwideugMichCheobunDTO> jagiJusigChwideugMichCheobun(@RequestBody SaeobBogoseoRequestDTO saeobBogoseoRequestDTO) {
+    public MainResponseBodyDTO<JagiJusigChwideugMichCheobunDTO> jagiJusigChwideugMichCheobun(@RequestBody SaeobBogoseoRequestDTO saeobBogoseoRequestDTO) {
 
         String requestUrl = String.format("%s?crtfc_key=%s&corp_code=%s&bsns_year=%s&reprt_code=%s",
                 REST_URL,
@@ -29,7 +29,7 @@ public class JagiJusigChwideugMichCheobunController {
                 saeobBogoseoRequestDTO.getCorpCode(),
                 saeobBogoseoRequestDTO.getBsnsYear(),
                 saeobBogoseoRequestDTO.getReprtCode());
-        return restTemplate.getForObject(requestUrl, ResponseBodyDTO.class);
+        return restTemplate.getForObject(requestUrl, MainResponseBodyDTO.class);
     }
 
 }

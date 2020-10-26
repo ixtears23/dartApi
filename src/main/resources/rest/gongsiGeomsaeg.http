@@ -1,0 +1,17 @@
+### json 요청
+POST http://localhost:12345/gongsiGeomsaeg
+Content-Type: application/json
+
+{
+  "corpCode":"",
+  "bgnDe":"20200117",
+  "endDe":"20200117",
+  "lastReprtAt":"",
+  "pblntfTy":"",
+  "pblntfDetailTy":"",
+  "corpCls":"Y",
+  "sort":"",
+  "sortMth":"",
+  "pageNo":"1",
+  "pageCount":"10"
+}

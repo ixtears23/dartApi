@@ -63,9 +63,9 @@ public class IsaGamsaJeoncheBosuHyeonhwangControllerTest {
     @Test
     public void isaGamsaJeoncheBosuHyeonhwangTest() throws Exception {
         SaeobBogoseoRequestDTO saeobBogoseoRequestDTO = SaeobBogoseoRequestDTO.builder()
-                .bsnsYear("2018")
-                .corpCode("00126380")
-                .reprtCode("11011")
+                .bsns_year("2018")
+                .corp_code("00126380")
+                .reprt_code("11011")
                 .build();
 
         ResultActions resultAction = mockMvc.perform(post("/isaGamsaJeoncheBosuHyeonhwang")
@@ -78,17 +78,17 @@ public class IsaGamsaJeoncheBosuHyeonhwangControllerTest {
                 .andDo(restDocumentationResultHandler.document(
                         requestFields(
                                 attributes(key("title").value("이사 감사 전체의 보수현황")),
-                                fieldWithPath("corpCode")
+                                fieldWithPath("corp_code")
                                         .type(JsonFieldType.STRING)
                                         .description("공시대상회사의 고유번호")
                                         .attributes(key("constraints")
                                                 .value("8자리")),
-                                fieldWithPath("bsnsYear")
+                                fieldWithPath("bsns_year")
                                         .type(JsonFieldType.STRING)
                                         .description("사업연도")
                                         .attributes(key("constraints")
                                                 .value("4자리")),
-                                fieldWithPath("reprtCode")
+                                fieldWithPath("reprt_code")
                                         .type(JsonFieldType.STRING)
                                         .description("보고서 코드\n1분기보고서:11013\n반기보고서:11012\n3분기보고서:11014\n사업보고서:11011")
                                         .attributes(key("constraints")

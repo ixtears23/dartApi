@@ -9,7 +9,7 @@ import lombok.Getter;
 @Builder
 public class SaeobBogoseoRequestDTO {
 
-    private String corpCode;
-    private String bsnsYear;
-    private String reprtCode;
+    private String corp_code;
+    private String bsns_year;
+    private String reprt_code;
 }

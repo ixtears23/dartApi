@@ -3,7 +3,7 @@ POST http://localhost:12345/imwonHyeonhwang
 Content-Type: application/json
 
 {
-  "corpCode":"00126380",
-  "bsnsYear":"2018",
-  "reprtCode":"11011"
+  "corp_code":"00126380",
+  "bsns_year":"2018",
+  "reprt_code":"11011"
 }

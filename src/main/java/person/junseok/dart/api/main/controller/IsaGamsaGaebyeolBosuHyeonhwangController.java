@@ -26,9 +26,9 @@ public class IsaGamsaGaebyeolBosuHyeonhwangController {
         String requestUrl = String.format("%s?crtfc_key=%s&corp_code=%s&bsns_year=%s&reprt_code=%s",
                 REST_URL,
                 API.KEY.getValue(),
-                saeobBogoseoRequestDTO.getCorpCode(),
-                saeobBogoseoRequestDTO.getBsnsYear(),
-                saeobBogoseoRequestDTO.getReprtCode());
+                saeobBogoseoRequestDTO.getCorp_code(),
+                saeobBogoseoRequestDTO.getBsns_year(),
+                saeobBogoseoRequestDTO.getReprt_code());
         return restTemplate.getForObject(requestUrl, MainResponseBodyDTO.class);
     }
 }
